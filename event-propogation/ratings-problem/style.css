@@ -1,0 +1,17 @@
+.main {
+  display: flex;
+  /* border: 3px, solid red; */
+  height: 100vh;
+  flex-direction: column;
+  align-items: center;
+}
+.filled {
+  color: goldenrod;
+}
+
+.star {
+  font-size: 30px;
+}
+.star:hover {
+  cursor: alias;
+}
