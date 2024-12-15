@@ -11,7 +11,7 @@ function debounce(fn) {
     debounceTimer = setTimeout(() => {
       fn(e);
       debounceTimer = null;
-    }, 1);
+    }, 1000);
   };
 }
 const debounceCaller = debounce(networkCall);

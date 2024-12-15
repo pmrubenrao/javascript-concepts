@@ -1,31 +1,44 @@
 const promise1 = new Promise((resolve, reject) => {
   setTimeout(() => {
-    reject('promise1');
+    reject('Promise-1');
   }, 1000);
 });
 
 const promise2 = new Promise((resolve, reject) => {
   setTimeout(() => {
-    reject('promise2');
+    reject('Promise-2');
   }, 2000);
 });
 
-Promise.customRace = function (promises) {
+Promise.customAny = function (promiseArray) {
   return new Promise((resolve, reject) => {
-    promises.forEach((p, index) => {
-      p.then((result) => {
-        resolve(result);
-      }).catch((error) => {
-        reject(error);
-      });
+    let counter = 0;
+    let erroredPromises = [];
+    promiseArray.forEach((promise, index) => {
+      promise
+        .then((result) => {
+          resolve(result);
+        })
+        .catch((error) => {
+          counter++;
+
+          erroredPromises[index] = error;
+          console.log(erroredPromises);
+          if (promiseArray.length === counter) {
+            reject(
+              new AggregateError(erroredPromises),
+              'All promises were rejected.'
+            );
+          }
+        });
     });
   });
 };
 
-Promise.customRace([promise1, promise2])
+Promise.customAny([promise1, promise2])
   .then((result) => {
     console.log(result);
   })
   .catch((error) => {
-    console.log('ERROR:', error);
+    console.log('ERROR:', error, error.errors, error.message);
   });

@@ -1,10 +1,10 @@
 function takeOrder(order) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      if (order === 'daru') {
-        resolve('daru|');
+      if (order === 'Khichidi') {
+        resolve('Khichidi');
       } else {
-        reject('daru k alawa kuch nahi milega|');
+        reject('Khichidi k alawa kuch nahi milega|');
       }
     }, 1000);
   });
@@ -13,7 +13,7 @@ function takeOrder(order) {
 function orderFullilment(orderType) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      resolve('daru ordered|');
+      resolve(`${orderType} ordered|`);
     }, 1000);
   });
 }
@@ -28,7 +28,7 @@ function generateBill(orderType) {
 
 async function orderCreator() {
   try {
-    const orderContainer = await takeOrder('fish');
+    const orderContainer = await takeOrder('test');
     const orderFullilmentContainer = await orderFullilment(orderContainer);
     const generateBillContainer = await generateBill(orderFullilmentContainer);
 

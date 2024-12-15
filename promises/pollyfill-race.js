@@ -11,11 +11,8 @@ const promise2 = new Promise((resolve, reject) => {
 });
 
 Promise.customRace = function (promises) {
-  const totalPromiseCount = promises.length;
-  let currentPromiseStatus = 0;
   return new Promise((resolve, reject) => {
     promises.forEach((p, index) => {
-      currentPromiseStatus++;
       p.then((result) => {
         resolve(result);
       }).catch((error) => {

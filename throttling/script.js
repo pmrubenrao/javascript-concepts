@@ -1,6 +1,6 @@
 const btn = document.querySelector('.btn');
 
-function debounce(fn, delay) {
+function throttle(fn, delay) {
   let intervalInProgress = false;
   return function () {
     if (intervalInProgress) {
@@ -18,4 +18,4 @@ function netwrokCall(e) {
   console.log('Network call made');
 }
 
-btn.addEventListener('click', debounce(netwrokCall, 1000));
+btn.addEventListener('click', throttle(netwrokCall, 1000));

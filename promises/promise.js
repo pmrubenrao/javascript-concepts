@@ -12,7 +12,7 @@ const promise2 = new Promise((resolve, reject) => {
 
 const promise3 = new Promise((resolve, reject) => {
   setTimeout(() => {
-    reject('Third');
+    resolve('Third');
   }, 3000);
 });
 
@@ -25,13 +25,13 @@ const promise3 = new Promise((resolve, reject) => {
 //     console.log('ERROR: FROM Promise.all()', e);
 //   });
 
-Promise.any([promise1, promise2, promise3])
-  .then((result) => {
-    console.log('SUCCESS promise.any()', result);
-  })
-  .catch((error) => {
-    console.log('ERROR, promise.any() failed', error);
-  });
+// Promise.any([promise1, promise2, promise3])
+//   .then((result) => {
+//     console.log('SUCCESS promise.any()', result);
+//   })
+//   .catch((error) => {
+//     console.log('ERROR, promise.any() failed', error);
+//   });
 
 // The promise that resolves or reject first will be given precendence.
 // Promise.race([promise1, promise2, promise3])
@@ -51,6 +51,6 @@ Promise.any([promise1, promise2, promise3])
 //     console.log('EROOR: FROM Promise.any()', error.errors);
 //   });
 
-// Promise.allSettled([promise1, promise2, promise3]).then((result) => {
-//   console.log('SUCCESS Promise.allSettled()', result);
-// });
+Promise.allSettled([promise1, promise2, promise3]).then((result) => {
+  console.log('SUCCESS Promise.allSettled()', result);
+});
