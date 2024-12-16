@@ -1,4 +1,4 @@
-// Constructer function are the bluepring to create the object of similar type
+// Constructer function are the blueprint for creating the object of similar type
 
 function Person(name, age) {
   // whenever a new constructor is created this object is assigned with new empty object

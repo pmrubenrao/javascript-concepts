@@ -5,7 +5,7 @@ Function.prototype.callCustom = function (contextObject, ...agrs) {
   const functionKey = Symbol();
   contextObject[functionKey] = callingFunction;
   contextObject[functionKey](...agrs);
-  console.log(contextObject);
+  console.log('contextObject', contextObject);
   //   console.log(contextObject);
   delete contextObject[functionKey];
 };

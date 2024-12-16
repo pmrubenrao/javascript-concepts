@@ -13,48 +13,50 @@
 var person = {
   name: 'ruben',
   age: '31',
-  innerFunction: () => {
+  innerFunction: function () {
     console.log('from inner function: ', this); // this will refer to the inner function invoker which is person object in this case
-    var nestedFunction = () => {
-      console.log(this); // this will refer to the `window/gloabal` object
+    var nestedFunction = function () {
+      console.log('nestedFunction', this); // this will refer to the `window/gloabal` object
     };
     nestedFunction();
   },
 };
 
-person.innerFunction();
+// person.innerFunction();
 
-// Normal function
-const cap = {
-  firstname: 'Steve',
-  getName: function () {
-    console.log(`getName: ${this.firstname}`);
-    var inner = function () {
-      console.log(`inner normal function: ${this.firstname}`);
-    };
-    inner();
-  },
-};
+// console.log('');
+// console.log('');
 
-cap.getName();
+// // Normal function
+// const cap = {
+//   firstname: 'Steve',
+//   getName: function () {
+//     console.log(`getName: ${this.firstname}`);
+//     var inner = function () {
+//       console.log('inner normal function:', this);
+//     };
+//     inner();
+//   },
+// };
+
+// cap.getName();
 
 // Arrow function
-const cap_arrow = {
-  firstname: 'Steve',
-  getName: () => {
-    console.log(
-      `getName invoked : ${this.firstname}, this:${JSON.stringify(this)}`
-    );
-    var inner = () => {
-      console.log(
-        `innerfucntion now has access to outer function scope: ${this.firstname}`
-      );
-    };
-    inner();
-  },
-};
+// const cap_arrow = {
+//   firstname: 'Steve',
+//   getName: () => {
+//     console.log('getName invoked :', this);
+//     var inner = () => {
+//       console.log(
+//         'innerfucntion now has access to outer function scope:',
+//         this
+//       );
+//     };
+//     inner();
+//   },
+// };
 
-cap_arrow.getName();
+// cap_arrow.getName();
 
 var d = {
   name: ' test',

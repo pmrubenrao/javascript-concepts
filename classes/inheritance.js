@@ -21,7 +21,7 @@ class Car extends Vehicle {
   }
 
   openTrunk() {
-    console.log(`Opening car trunk`);
+    console.log(`Opening car trunk of ${this.color}`);
   }
 }
 

@@ -1,5 +1,5 @@
 const allStarsInd = document.querySelector('.stars');
-const allStars = document.querySelectorAll('.star');
+const stars = document.querySelectorAll('.star');
 const rating = document.querySelector('#rating');
 
 allStarsInd.addEventListener('click', (e) => {
@@ -7,10 +7,10 @@ allStarsInd.addEventListener('click', (e) => {
   if (e.target.classList.contains('star')) {
     const value = parseInt(e.target.getAttribute('data-value'));
     console.log('do something', value);
-    for (let i = 0; i < allStars.length; i++) {
-      allStars[i].classList.remove('filled');
+    for (let i = 0; i < stars.length; i++) {
+      stars[i].classList.remove('filled');
       if (i < value) {
-        allStars[i].classList.add('filled');
+        stars[i].classList.add('filled');
       }
     }
     rating.innerText = value;
