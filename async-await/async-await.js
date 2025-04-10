@@ -14,7 +14,7 @@ function orderFullilment(orderType) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(`${orderType} ordered|`);
-    }, 1000);
+    }, 2000);
   });
 }
 
@@ -22,13 +22,13 @@ function generateBill(orderType) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve('bill is generated for ' + orderType + '|');
-    });
+    }, 3000);
   });
 }
 
 async function orderCreator() {
   try {
-    const orderContainer = await takeOrder('test');
+    const orderContainer = await takeOrder('Khichidi');
     const orderFullilmentContainer = await orderFullilment(orderContainer);
     const generateBillContainer = await generateBill(orderFullilmentContainer);
 

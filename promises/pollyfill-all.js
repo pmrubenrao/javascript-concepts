@@ -1,22 +1,22 @@
 const promise1 = new Promise((resolve, reject) => {
   setTimeout(() => {
-    resolve('First promise');
+    resolve('First promise::');
   }, 1000);
 });
 
 const promise2 = new Promise((resolve, reject) => {
   setTimeout(() => {
     // resolve('Second promise RESOLVED');
-    resolve('Second promise');
+    resolve('Second promise::');
   }, 2000);
 });
 
 // Promise.all([promise1, promise2])
 //   .then((val) => {
-//     console.log('FROM promise all ', val);
+//     console.log(val, 'resolved ');
 //   })
 //   .catch((error) => {
-//     console.log('FROM promise all reject: ', error);
+//     console.log(error, 'rejected');
 //   });
 
 Promise.customPromiseAll = function (promiseHolder) {

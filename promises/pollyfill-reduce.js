@@ -18,9 +18,12 @@ Array.prototype.customReduce = function (callback, initialValue) {
   return accumulator;
 };
 
-const customReduceOutput = num.customReduce((acc, fruit) => {
-  acc[fruit] = (acc[fruit] || 0) + 1;
-  return acc;
-}, {});
+const customReduceOutput = num.customReduce(
+  (acc, fruit) => {
+    acc[fruit] = (acc[fruit] || 0) + 1;
+    return acc;
+  },
+  { 1: 1 }
+);
 
 console.log(customReduceOutput);

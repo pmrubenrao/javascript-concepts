@@ -16,4 +16,5 @@ const flattenedArray = arr.flatten((acc, e, arr) => {
   return acc.concat(e);
 }, []);
 
-console.log(arr, flattenedArray);
+console.log(arr);
+console.log(flattenedArray);
